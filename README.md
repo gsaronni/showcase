@@ -5,7 +5,7 @@ Exercises to get acquainted with python
 - Some exercises from the [book](https://www.goodreads.com/book/show/4988121-programming-in-python-3)
 
 ## Azura
-- Text advent
+- Text adventure
 
 ![Azura](azura.png)
 ![Azura](azuraB.png)
