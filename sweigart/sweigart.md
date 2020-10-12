@@ -135,7 +135,7 @@ Global scope: Variables that are assigned outside all functions
 When a scope is destroyed, all the values stored in the scope's variables are forgotten. 
 There is only one global scope, and it is created when your program begins. When your program terminates, the global scope is destroyed, and all its variables are forgotten.  
 
-A local scope is created whenever a function is called. Any variables assigned in the functino exist within the function's local scope. When the function returns, the local scope is destroyed, and these variables are forgotten.
+A local scope is created whenever a function is called. Any variables assigned in the function exist within the function's local scope. When the function returns, the local scope is destroyed, and these variables are forgotten.
 
 Scopes matter for several reasons:
 - Code in the global scope, outside of all functions, cannot use any local variables
@@ -145,10 +145,25 @@ Scopes matter for several reasons:
 
 Errors can be handled with `try` and `except` statements. When the code inside causes an error the program execution immediately moves to the code in the `except` clause. After running that code, the execution continues as normal. 
 
-
-
-
 ## Lists
+Lists and tuples can contain multiple values.
+  - List[]: Mutable value that contains multiple values in an ordered sequence, comma-delimited
+    - *Index:* `list[1]`, `list[0][1]`, *Slices:* `list[2:5]`, 
+    - `index()`
+    - `del`
+    - `enumerate()`
+    - `append()`
+    - `insert()`
+    - `remove()`
+    - `sort()` ASCII order
+  - Tuple(): Immutable value that contains multiple values in an ordered sequence, comma-delimited
+    - `id()`
+    - `copy()` = Make a duplicate copy of a mutable value
+    - `deepcopy()`= Recursive copy
+
+
+
+
 ## Dictionaries and structuring data
 ## Manipulating strings
 ## Pattern matching with regular expressions
