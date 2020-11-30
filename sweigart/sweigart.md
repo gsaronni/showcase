@@ -161,11 +161,55 @@ Lists and tuples can contain multiple values.
     - `copy()` = Make a duplicate copy of a mutable value
     - `deepcopy()`= Recursive copy
 
-
-
-
 ## Dictionaries and structuring data
+dictionary{'':''}: Unordered mutable collection of many values with a key-value pair
+  - `keys()`
+  - `values()`
+  - `items()`
+  - `get()` 
+  - `setdefault()`
+  - pprint: module to 'pretty printing' dictionary values
+    - `pprint()`
+    - `pformat()`
+
 ## Manipulating strings
+Escape character: backslash(`\`) + character
+
+| Escape character | Equivalent | 
+| --- | --- | 
+| `\'` | Single quote |
+| `\"` | Double quote |
+| `\t` | Tab |
+| `\n` | Newline (line break) |
+| `\\` | Backslash |
+
+Raw string: `r` before the beginning quotation mark of a string. It ignores all escape character inside. 
+
+An expression with two strings joined using `in` or `not` will evaluate to a Boolean `True` or `False`.
+
+String interpolation: `%s` operator inside the string acts as a marker to be replaced by values following the string.
+
+f-strings: Similar but braces {} are used instead of `%s`. f-prefix.
+
+methods:
+- `upper()`
+- `lower()`
+- `isupper()`
+- `islower()`
+- `isX()` methods
+  - `isalpha()`: Returns `True` if the string consists only of letters and is not blank
+  - `isalnum()`: Returns `True` if the string consists only of letters and numbers and is not blank
+  - `isdecimal()`: Returns `True` if the string consists only of numeric characters and is not blank
+  - `isspace()`: Returns `True` if the string consists only of spaces, tabs, and newlines and is not blank
+  - `istitle()`: Returns `True` if the string consists only of words that begin with an uppercase letter followed by only lowercase letters
+- `startswith()`
+- `endswith()`
+- `join()` dflaskhjidfslhjkfdsajklhdfsljhkljkdshaf
+- `split()`
+
+
+
+
 ## Pattern matching with regular expressions
 ## Input validation
 ## Reading and writing files
