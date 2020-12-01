@@ -22,14 +22,14 @@ Data types:
   - Replication: 
 
 Functions:
-`print()`
-`input()`
-`len()`
-`str()`
-`int()`
-`float()`
-`round()`
-`abs()`
+- `print()`
+- `input()`
+- `len()`
+- `str()`
+- `int()`
+- `float()`
+- `round()`
+- `abs()`
 
 ## Flow control
 Diagrams:
@@ -194,8 +194,8 @@ f-strings: Similar but braces {} are used instead of `%s`. f-prefix.
 methods:
 - `upper()`
 - `lower()`
-- `isupper()`
-- `islower()`
+- `isupper()`: Returns `True` if the string has at least one letter and all uppercase
+- `islower()`: Returns `True` if the string has at least one letter and all lowercase
 - `isX()` methods
   - `isalpha()`: Returns `True` if the string consists only of letters and is not blank
   - `isalnum()`: Returns `True` if the string consists only of letters and numbers and is not blank
@@ -204,10 +204,15 @@ methods:
   - `istitle()`: Returns `True` if the string consists only of words that begin with an uppercase letter followed by only lowercase letters
 - `startswith()`
 - `endswith()`
-- `join()` dflaskhjidfslhjkfdsajklhdfsljhkljkdshaf
+- `join()` 
 - `split()`
+- `partition()`: Returns a tuple of three substrings for the "before", "separator", and "after" substrings
+- `rjust(*n*)`, `ljust(*n*)`, `center(*n*)`: Return a padded version of the string they are called on, with spaces inserted to justify the text
+- `strip()`: Returns a new string without any whitespace characters at the beginning or end
+- `rstrip()`, `lstrip()`: Remove whitespace characters from the left and right ends, respectively
+- `ord()`, `chr()`: Get the Unicode code point of a text character and viceversa
 
-
+COPYING AND PASTING STRINGS WITH THE
 
 
 ## Pattern matching with regular expressions
