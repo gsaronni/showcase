@@ -211,11 +211,11 @@ methods:
 - `strip()`: Returns a new string without any whitespace characters at the beginning or end
 - `rstrip()`, `lstrip()`: Remove whitespace characters from the left and right ends, respectively
 - `ord()`, `chr()`: Get the Unicode code point of a text character and viceversa
-  
+
 ### pyperclip module
 It has `copy()` and `paste()` functions that can send text to and receive text from your computer's clipboard.
 
-
+f
 STEP 3: COPY THE RIGHT PHRASE
 
 
