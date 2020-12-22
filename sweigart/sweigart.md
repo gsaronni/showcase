@@ -215,8 +215,8 @@ methods:
 ### pyperclip module
 It has `copy()` and `paste()` functions that can send text to and receive text from your computer's clipboard.
 
-f
-STEP 3: COPY THE RIGHT PHRASE
+PIG LATIN
+Read and comprehend the script5
 
 
 ## Pattern matching with regular expressions
