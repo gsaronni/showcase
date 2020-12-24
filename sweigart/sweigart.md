@@ -215,11 +215,36 @@ methods:
 ### pyperclip module
 It has `copy()` and `paste()` functions that can send text to and receive text from your computer's clipboard.
 
-PIG LATIN
-Read and comprehend the script5
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Pattern matching with regular expressions
+
+Regular Expressions, *regexes*. `re` module.
+
+Steps:
+1. Import regex module: `import re`
+2. Create a `Regex` object with `re.compile()` function using a raw string.
+3. Pass the needed string into `Regex` object's `search()` method. This returns a `Match` object
+4. Call the `Match` object's `group()` method to return a string of the actual matched text.
+
+methods:
+- `re.compile()`
+  - the following characters have special meaning: `. ^ $ * + ? { } [ ] \ | ( )
+  - To detect these characters you need to escape them with a backslash
+- `findall()`
+
+Character classes
+| Shorthand character class | Represents |
+| --- | --- |
+| \d | Any numeric digit from 0 to 9 |
+| \D | Any character that is not a numeric digit from 0 to 9 | 
+| \w | Any letter, numeric digit, or the underscore character (Matching "word" characters) |
+| \W | Any character that is not a letter, numeric digit, or the underscore character | 
+| \s | Any space, tab, or newline character (Matching "space" characters) | 
+| \S | Any character that is not a space, tab, or newline | 
+
+
+
 ## Input validation
 ## Reading and writing files
 ## Organizing files
