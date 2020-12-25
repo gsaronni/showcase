@@ -231,7 +231,22 @@ methods:
 - `re.compile()`
   - the following characters have special meaning: `. ^ $ * + ? { } [ ] \ | ( )
   - To detect these characters you need to escape them with a backslash
-- `findall()`
+- `findall()`: returns the strings of every match in the searched string
+- `search()`: returns a `Match` object of the first matched text in the searching string
+- `sub()`: for `Regex` objects is passed two arguments
+  - the first argument is a string to replace any matches
+  - the second is the string for the regular expression
+- `re.compile()` to ignore whitespace and comments inside the regular expression string
+- `re.VERBOSE` as the second argument to `re.compile()` to get verbose
+- `re.IGNORECASE`
+
+- Match multiple groups: `|`, pipe match one of many expressions
+- Optional matching: `?`, question mark flags the group that precedes it as an optional part of the pattern
+- Match zero or more: `*`, start or asterisk 
+- Match one or more: `+`, plus
+- Match specific repetitions: `(){}`, braces
+  - *greedy*: by default, in ambiguous situations they will match the longest string possible
+  - *non-greedy*: or lazy, matches the shortest string possible, has the closing brace followed by a question mark `?`
 
 Character classes
 | Shorthand character class | Represents |
@@ -243,9 +258,34 @@ Character classes
 | \s | Any space, tab, or newline character (Matching "space" characters) | 
 | \S | Any character that is not a space, tab, or newline | 
 
+- Caret symbol `^` at the start of a regex to indicate that a match must occur at the beginning of the searched text
+- Dollar symbol `$` at the end of the regex to indicate the string must end with this regex pattern
+- Wildcard symbol `.` or dot will match any character except for a newline
+  - To use *non-greedy* use `.*?`
+  - Use `re.DOTALL` as the second argument to `re.compile()`, you can include newline character
+
+
+Syntax:
+- The `?` matches zero or one of the preceding group.
+- The `*` matches zero or more of the preceding group.
+- The `+` matches one or more of the preceding group.
+- The `{n}` matches exactly n of the preceding group.
+- The `{n,}` matches n or more of the preceding group.
+- The `{,m}` matches 0 to m of the preceding group.
+- The `{n,m}` matches at least n and at most m of the preceding group.
+- `{n,m}?` or `*?` or `+?` performs a non-greedy match of the preceding group.
+- `^spam` means the string must begin with spam.
+- `spam$` means the string must end with spam.
+- The `.` matches any character, except newline characters.
+- `\d`, `\w`, and `\s` match a digit, word, or space character, respectively.
+- `\D`, `\W`, and `\S` match anything except a digit, word, or space character, respectively.
+- `[abc]` matches any character between the brackets (such as a, b, or c).
+- `[^abc]` matches any character that isn’t between the brackets.
 
 
 ## Input validation
+
+
 ## Reading and writing files
 ## Organizing files
 ## Debugging
