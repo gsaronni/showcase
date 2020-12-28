@@ -284,6 +284,31 @@ Syntax:
 
 
 ## Input validation
+`PyInputPlus` module for input validation. Not part of python standard library.  
+
+PyInputPlus has several functions for different kinds of input:
+- `inputStr()`: Is like the built-in `input()` function but has the general PyInputPlus features. You can also pass a custom validation function to it
+- `inputNum()`: Ensures the user enters a number and returns an int or float, depending on if the number has a decimal point in it 
+- `inputChoice()`: Ensures the user enters one of the provided choices
+- `inputMenu()`: Is similar to `inputChoice()`, but provides a menu with numbered or lettered options
+- `inputDatetime()`: Ensures the user enters a date and time
+- `inputYesNo()`: Ensures the user enters a “yes” or “no” response
+- `inputBool()`: Is similar to `inputYesNo()`, but takes a “True” or “False” response and returns a Boolean value
+- `inputEmail()`: Ensures the user enters a valid email address
+- `inputFilepath()`: Ensures the user enters a valid file path and filename, and can optionally check that a file with that name exists
+- `inputPassword()`: Is like the built-in `input()`, but displays * characters as the user types so that passwords, or other sensitive information, aren’t displayed on the screen
+- The following functions will accept `min`, `max`, `greaterThan`, and `lessThan` keyword arguments for specifying a range of valid values.
+  - `inputNum()`
+  - `inputInt()`
+  - `inputFloat()`
+- Keyword arguments:
+  - `pyip.inputNum(blank=True)`: By default, blank input isn't allowed unless the `blank` keyword argument is set to `True`
+  - `pyip.inputNum(limit=2)`: 
+  - `pyip.inputNum(timeout=20)`: 
+  - `pyip.inputNum(timeout=20, default='N/A)`: 
+  - `pyip.inputNum(allowRegexes=[r'(I|V|X|L|C|D|M)+', r'zero'])`: The function will accept Roman numerals
+  - `pyip.inputNum(blockRegexes=[r'[02468]$])`: The function won't accept even numbers
+    - If you specify both an `allowRegexes` and `blockRegexes` argument, the allow list overrides the block list.
 
 
 ## Reading and writing files
