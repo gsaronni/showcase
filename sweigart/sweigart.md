@@ -312,7 +312,104 @@ PyInputPlus has several functions for different kinds of input:
 
 
 ## Reading and writing files
+To make scripts working on every OS is strongly suggested to write paths using double backslash `\\`. Ex. (`'C:\\delicious\\walnut\\waffles')
+
+- `import os`
+  - `mkdir()`: Makes one directory at a time
+  - `os.makedirs()`: Makes more directories at once
+- `from pathlib import Path`: Introduced in Python 3.4 to replace older some `os.path` functions
+- `Path.cwd()`: Get current working directory as a string
+  - *old_way* `os.getcwd()`
+- `os.chdir()`: call directory
+- `os.path()`: Gets a path
+  - os.path.abspath(*path*): Returns a string of the absolute path of the argument. 
+  - os.path.isabs(*path*): Returns `True` if the argument is an absolute path and `False` if it is a relative path
+  - os.path.relpath(*path*, *start*): Returns a string of a relative path fro the `start` path to `path`. If start is not provided, the cwd is used as a path
+
+Given a `path` object, you can extract the file's path different parts as strings using several `Path` object attributes:
+- Anchor: Root folder of the filesystem
+- Drive: On windows is the single capital letter that denotes a storage device
+- Parent: Folder that contains the file
+- Name: Made up of the *stem* or *base name* and the *suffix* or *extension*
+
+> Note: Windows `Path` objects have a `drive` attribute while macOS and Linux `Path` objects don't
+
+Path: path objects
+- `.anchor`: 
+- `.parent`: 
+- `.name`: 
+- `.stem`: 
+- `.suffix`: 
+- `.drive`: 
+The `parents` attribute, different from `parent` attribute, can be walked with an integer index:
+```
+>>> Path.cwd()
+WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')
+>>> Path.cwd().parents[0]
+WindowsPath('C:/Users/Al/AppData/Local/Programs/Python')
+>>> Path.cwd().parents[1]
+WindowsPath('C:/Users/Al/AppData/Local/Programs')
+>>> Path.cwd().parents[2]
+WindowsPath('C:/Users/Al/AppData/Local')
+>>> Path.cwd().parents[3]
+WindowsPath('C:/Users/Al/AppData')
+>>> Path.cwd().parents[4]
+WindowsPath('C:/Users/Al')
+>>> Path.cwd().parents[5]
+WindowsPath('C:/Users')
+>>> Path.cwd().parents[6]
+WindowsPath('C:/')
+```
+older `os` module version:
+
+- `os.path.dirname()`: 
+- `os.path.dirname()`: 
+- `os.path.split()`: Does not take a file path and return a list of strings of each folder
+  - `split(os.sep)`: Is used to return a list of strings of each folder 
+
+File operations:
+- `os.path.getsize(*path*)`: Returns the size in bytes
+- `os.listdir(*path*)`: Returns a list of filename strins for each file
+
+- `glob()`: Glob patterns are simplified Regex. Returns a generator object
+
+
+- `p.exists()`: Returns `True` if the path exists or returns `False` if it doesn’t exist.
+- `p.is_file()`: Returns `True` if the path exists and is a file, or returns `False` otherwise.
+- `p.is_dir()`: Returns `True` if the path exists and is a directory, or returns `False` otherwise.
+
+
+- `write_text()`: Creates a new text file or overwrites an existing one with the string passed to it.
+
+There are three steps to reading or writing files:
+- `open()`: Returns a `File` object.
+- `read()` or `write()`
+  > Write() does not automatically add a newline character to the end of the string
+  - `readlines()`: Returns a list of string values from the file, one for each line of text.
+    > Except for the last line of the file, each of the string values ends with a newline character \n.
+    > A list of strings is often easier to work with than a single large string value.
+- `close()` 
+
+
+You can save variables in your Python programs to binary shelf files using `shelve` module. This way, your program can restore data to variables from the hard drive.
+```
+>>> import shelve
+>>> shelfFile = shelve.open('mydata')
+>>> cats = ['Zophie', 'Pooka', 'Simon']
+>>> shelfFile['cats'] = cats
+>>> shelfFile.close()
+```
+
+Saving variables with `pprint.pformat()` function. It gives a string that can be written to a `.py` file making your very own module.
+
+
+- The benefit of creating a `.py` file, opposed to saving variables with the `shelve` module, is that because it is a text file, it can be read and modified by anyone with a simple text editor.
+
+Project:  Updatable Multi-Clipboard
+
 ## Organizing files
+- ``: 
+- ``: 
 ## Debugging
 ## Web scraping
 ## Working with excel spreadsheets
@@ -323,3 +420,4 @@ PyInputPlus has several functions for different kinds of input:
 ## Sending email and text messages
 ## Manipulating images
 ## Controlling the keyboard and mouse with GUI automation
+
