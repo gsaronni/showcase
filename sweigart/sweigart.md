@@ -408,8 +408,30 @@ Saving variables with `pprint.pformat()` function. It gives a string that can be
 Project:  Updatable Multi-Clipboard
 
 ## Organizing files
+
+`shutil` or shell utilities module has functions to copy, move, rename and delete files in your Python programs.
+  - `shutil.copy(*source*, *destination*)`: Will copy a single file.
+  - `shutil.copytree(*source*, *destination*)`: Will copy an entire folder and every folder and file contained in it.
+  - `shutil.move(*source*, *destination*)`: Will move the file or folder. It will overwrite homonyms.
+    - If it doesn't find the folder name you are moving it to it assumes it is the new name of the file. 
+    - Always check if the folder exists to avoid problems
+- `os.unlink(*path*)`: Will delete the file at *path*
+- `os.rmdir(*path*)`: Will delete the folder at *path*. This folder must be empty of any files or folders.
+- `shutil.rmtree(*path*)`: Will remove the folder at *path*, and all files and folders it contains will also be deleted.
+  - Double check before deleting
+- `send2trash`: Module that can only send files to the recycle bin.
+- `os.walk`: 
+  - Returns three values on each iteration through the loop
+    - A string of the current folder's name
+    - A list of strings of the folders in the current folder
+    - A list of strings of the files in the current folder
+- `zipfile`: 
+  - `.extractall()`: Extracts all the files and folders 
+
+
 - ``: 
 - ``: 
+
 ## Debugging
 ## Web scraping
 ## Working with excel spreadsheets
@@ -420,4 +442,3 @@ Project:  Updatable Multi-Clipboard
 ## Sending email and text messages
 ## Manipulating images
 ## Controlling the keyboard and mouse with GUI automation
-
