@@ -1,4 +1,29 @@
 # Automate the Boring stuff
+
+- [Automate the Boring stuff](#automate-the-boring-stuff)
+  - [Resources](#resources)
+  - [Python basics](#python-basics)
+  - [Flow control](#flow-control)
+  - [Functions](#functions)
+  - [Lists](#lists)
+  - [Dictionaries and structuring data](#dictionaries-and-structuring-data)
+  - [Manipulating strings](#manipulating-strings)
+    - [pyperclip module](#pyperclip-module)
+  - [Pattern matching with regular expressions](#pattern-matching-with-regular-expressions)
+  - [Input validation](#input-validation)
+  - [Reading and writing files](#reading-and-writing-files)
+  - [Organizing files](#organizing-files)
+  - [Debugging](#debugging)
+  - [Web scraping](#web-scraping)
+  - [Working with excel spreadsheets](#working-with-excel-spreadsheets)
+  - [Working with google sheets](#working-with-google-sheets)
+  - [Working with pdf and word documents](#working-with-pdf-and-word-documents)
+  - [Working with csv files and json data](#working-with-csv-files-and-json-data)
+  - [Keeping time, scheduling tasks and launching programs](#keeping-time-scheduling-tasks-and-launching-programs)
+  - [Sending email and text messages](#sending-email-and-text-messages)
+  - [Manipulating images](#manipulating-images)
+  - [Controlling the keyboard and mouse with GUI automation](#controlling-the-keyboard-and-mouse-with-gui-automation)
+
 ## Resources
 - pastebin.com
 - gist.github.com
@@ -428,12 +453,53 @@ Project:  Updatable Multi-Clipboard
 - `zipfile`: 
   - `.extractall()`: Extracts all the files and folders 
 
-
-- ``: 
-- ``: 
-
 ## Debugging
+
+Exceptions are raised with a `raise` statement. It consists of the following:
+- The `raise` keyword
+- A call to the `Exception()` function
+- A string with a helpful error message passed to the `Exception()` function
+
+An assertion is a sanity check to make sure your code isn't doing something obviously wrong. They are performed by `assert` statements. If failed an `AssertionError` exception is raised. It consists of the following:
+- The `assert` keyword
+- A condition, ergo an expression that evaluates to `True` or `False`
+- A comma
+- A string to display when the condition is `False`
+
+Logging is a great way to understand what's happening in your program and in what order it's happening.  
+`logging` module makes it easy to create a record of custom messages that you write.
+
+```
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname) s - %(message)s')
+```
+
+`LogRecord` is created whenever Python logs an event.  
+`basicConfig()` lets you specify what details about the `LogRecord` object you want to see and how you want those details displayed.  
+
+
+Don't debug with the `print()` function. You may remove one too many print() calls while instead a single `logging.disable(logging.CRITICAL)` call will disable all logging messages. It is easier to switch between showing and hiding messages.
+
+Logging levels:
+
+| Level | function | Description | 
+| --- | --- | --- |
+| DEBUG | `logging.debug()` | The lowest level. Used for small details. |
+| INFO | `logging.info()` | Used to record information on general events in your program or confirm that things are working at their point in the program. | 
+| WARNING | `logging.warning()` | Used to indicate a potential problem that doesn't prevent the program from working but might do so in the future. | 
+| ERROR | `logging.error()` | Used to record an error that caused the program to fail to do something | 
+| CRITICAL | `logging.critical()` | The highest level. Used to indicate a fatal error that has caused or is about to cause the program to stop running entirely. | 
+
+To disable logging:
+- `logging.disable()`
+- `logging.disable(logging.CRITICAL)`:
+
+Save logs to a file: `logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname) s - %(message)s')`
+
+
+
 ## Web scraping
+- ``: 
 ## Working with excel spreadsheets
 ## Working with google sheets
 ## Working with pdf and word documents
