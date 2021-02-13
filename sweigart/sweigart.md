@@ -15,6 +15,8 @@
   - [Organizing files](#organizing-files)
   - [Debugging](#debugging)
   - [Web scraping](#web-scraping)
+    - [BeautifulSoup4](#beautifulsoup4)
+    - [Selenium](#selenium)
   - [Working with excel spreadsheets](#working-with-excel-spreadsheets)
   - [Working with google sheets](#working-with-google-sheets)
   - [Working with pdf and word documents](#working-with-pdf-and-word-documents)
@@ -499,8 +501,88 @@ Save logs to a file: `logging.basicConfig(level=logging.DEBUG, format='%(asctime
 
 
 ## Web scraping
-- ``: 
+Modules:
+- **webbrowser**: Comes with python and opens a browser to a specific page
+- [**requests**](https://requests.readthedocs.io/en/master/): Downloads files and web pages from the internet
+  1. Call `request.get()` to download the file
+  2. Call `open()` with 'wb' to create a new file in write binary mode
+  3. Loop over the `Response` object's `iter_content()` method
+  4. Call `write()` on each iteration to write the content to the file
+  5. Call `close()` to close the file 
+- **bs4**: Parses HTML
+- **selenium**: Launches and control a web browser. It is able to fill in forms and simulate mouse clicks
+
+
+### BeautifulSoup4
+
+| Selector | Effect | 
+| --- | --- | 
+| `soup.select('div')` | All elements named `<div>` | 
+| `soup.select('#author')` | The element with an `id` attribute for author | 
+| `soup.select('.notice')` | All elements that use a CSS `class` attribute named `notice` | 
+| `soup.select('div span')` | All elements named `<span>` that are within an element named `div` | 
+| `soup.select('div > span')` | All elements named `<span>` that are directly within an element named `<div>`, with no other element in between | 
+| `soup.select('input[name]')` | All elements named `<input>` that have a `name` attribute with any value | 
+| `soup.select('input[type="button"]')` | All elements named `<input>` that have an attribute named `type` with value `button` | 
+
+Project page 305
+
+### Selenium
+
+Webdrivers:
+- [Mozilla](https://github.com/mozilla/geckodriver/releases)
+- [Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+
+
+| Method name | WebElement object/list returned |
+| --- | --- |
+| `browser.find_element_by_class_name(name)` <br> `browser.find_elements_by_class_name(name)` | Elements that use the CSS class `name` |
+| `browser.find_element_by_css_selector(selector)` <br> `browser.find_elements_by_css_selector(selector)` |Elements that match the CSS `selector` |
+| `browser.find_element_by_id(id)` <br> `browser.find_elements_by_id(id)` | Elements with a matching id attribute value |
+| `browser.find_element_by_link_text(text)` <br> `browser.find_elements_by_link_text(text)` | `<a>` elements that completely match the `text` provided | 
+| `browser.find_element_by_partial_link_text(text)` <br> `browser.find_elements_by_partial_link_text(text)` | `<a>` elements that contain the text provided |
+| `browser.find_element_by_name(name)` <br> `browser.find_elements_by_name(name)` | Elements with a matching `name` attribute value |
+| `browser.find_element_by_tag_name(name)` <br> `browser.find_elements_by_tag_name(name)` | Elements with a matching tag name (case-insensitive; an `<a>` element is matched by 'a' and 'A') |
+
+> Except for `*_by_tag_name()` methods, the arguments to all the methods are case sensitive. If no elements exist on the page that match what the method is looking for, the `selenium` module raises a `NoSuchElement` exception. `try` and `except` statements can avoid to crash this exception.
+
+| Attribute or method | Description |
+| --- | --- |
+| `tag_name` | The tag name, such as 'a' for an `<a>` element | 
+| `get_attribute(name)` | The value for the element’s name attribute |
+| `text` | The text within the element, such as 'hello' in `<span>hello </span>` | 
+| `clear()` | For text field or text area elements, clears the text typed into it |
+| `is_displayed()` | Returns True if the element is visible; otherwise returns False |
+| `is_enabled()` | For input elements, returns True if the element is enabled; otherwise returns False |
+| `is_selected()` | For checkbox or radio button elements, returns True if the element is selected; otherwise returns False |
+| `location` | A dictionary with keys 'x' and 'y' for the position of the element in the page |
+
+> Input passwords using pyinputplus.inputPassword(). Try to avoid putting passwords in source code whenever possible
+
+| Attributes | Meanings |
+| --- | --- |
+| `Keys.DOWN, Keys.UP, Keys.LEFT, Keys.RIGHT` | The keyboard arrow keys |
+| `Keys.ENTER, Keys.RETURN` | The ENTER and RETURN keys |
+| `Keys.HOME, Keys.END, Keys.PAGE_DOWN, Keys.PAGE_UP` | The HOME, END, PAGEDOWN, and PAGEUP keys |
+| `Keys.ESCAPE, Keys.BACK_SPACE, Keys.DELETE` | The ESC, BACKSPACE, and DELETE keys |
+| `Keys.F1, Keys.F2, . . . , Keys.F12` | The F1 to F12 keys at the top of the keyboard |
+| `Keys.TAB` | The TAB key |
+
+| Browser | button | 
+| --- | --- |
+| `browser.back()` | Clicks the Back button |
+| `browser.forward()` | Clicks the Forward button |
+| `browser.refresh()` | Clicks the Refresh/Reload button |
+| `browser.quit()` | Clicks the Window button |
+
+- [Selenium documentation](https://selenium-python.readthedocs.io/)
+
 ## Working with excel spreadsheets
+- [OpenPyXL documentation](https://openpyxl.readthedocs.io/en/stable/)
+
+
+
+- ``: 
 ## Working with google sheets
 ## Working with pdf and word documents
 ## Working with csv files and json data
